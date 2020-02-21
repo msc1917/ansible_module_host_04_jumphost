@@ -1,0 +1,12 @@
+# {{ ansible_managed }}
+#
+# /etc/ddclient.conf
+{% for item in dyndns %}
+
+protocol={{ item["protocol"] }}
+{{ item["use_string"] }}
+server={{ item["url_remote"] }}
+login={{ item["login"] }}
+password={{ item["key"] }}
+{{ item["url_home"] }}
+{% endfor %}

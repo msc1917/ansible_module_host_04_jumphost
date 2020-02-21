@@ -1,0 +1,16 @@
+---
+- name: Install ddclient
+  apt:
+    name: [ 'ddclient', 'policykit-1' ]
+    state: present
+    update_cache: no
+  become: yes
+
+- name: Generiere /etc/ddclient.conf
+  template:
+    src: "ddclient/ddclient.conf.j2"
+    dest: "/etc/ddclient.conf"
+    owner: root
+    group: root
+    mode: '0600'
+  become: yes
